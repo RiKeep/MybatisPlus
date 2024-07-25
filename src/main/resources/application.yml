@@ -1,0 +1,25 @@
+spring:
+  # 配置数据源信息
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: zh0604
+
+mybatis-plus:
+  configuration:
+    # 使用 mybatis-plus 的日志功能, 来查看 mybatis-plus 自动生成的 sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  # mybatis-plus 的默认路径是类路径下mapper下的所有xml文件, 如果不写也是一样的
+  mapper-locations: "classpath*:/mapper/**/*.xml"
+
+  # 设置 mybatis plus 的全局配置
+  global-config:
+    db-config:
+      # 设置 实体类 对流的表的统一前缀
+      table-prefix: t_
+      # 设置统一的主键生成策略
+      id-type: auto
+  # 配置类型别名所对应的包
+  type-aliases-package: com.Ri.mybatis_plus.pojo
